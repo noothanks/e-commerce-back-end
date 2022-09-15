@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll({
+    attributes: [
+      'id',
+      'category_name'
+    ],
     include: [
       {
         model: Product,
@@ -34,6 +38,10 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    attributes: [
+      'id',
+      'category_name'
+    ],
     include: [
       {
         model: Product,
